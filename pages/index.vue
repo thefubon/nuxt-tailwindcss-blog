@@ -32,10 +32,9 @@
       </li>
     </scrollactive>
 
-    <NuxtContent
-      class="mt-10 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto"
-      :document="page"
-    />
+    <div class="mt-10 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
+      <NuxtContent :document="page"/>
+    </div>
   </section>
 </template>
 
