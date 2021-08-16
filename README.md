@@ -1,6 +1,6 @@
-# tailwind-components
+# Nuxt Components
 
-> My first-rate Nuxt.js project
+> By TheFubon
 
 ## Build Setup
 
