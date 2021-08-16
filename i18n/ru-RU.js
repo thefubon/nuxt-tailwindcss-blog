@@ -1,3 +1,4 @@
 export default {
-  text: 'Коллекция указателей'
+  index: 'Index указателей',
+  about: 'About указателей'
 }

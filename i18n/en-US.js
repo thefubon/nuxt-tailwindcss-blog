@@ -1,3 +1,4 @@
 export default {
-  text: 'Index Collection'
+  index: 'Index Collection',
+  about: 'About Collection'
 }

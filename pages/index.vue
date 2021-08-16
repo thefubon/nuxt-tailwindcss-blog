@@ -7,7 +7,7 @@
     </div>
     <div class="bg-blue-600">
       <div class="py-2 container mx-auto flex items-center justify-center">
-        <p class="text-4xl text-white font-bold text-center" v-text="$t('text')"></p>
+        <p class="text-4xl text-white font-bold text-center" v-text="$t('index')"></p>
       </div>
     </div>
   </section>

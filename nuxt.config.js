@@ -70,8 +70,8 @@ export default {
   },
   build: {
   },
-  transition: {
-    name: 'my-layouts',
-    mode: 'out-in',
-  },
+  // transition: {
+  //   name: 'my-layouts',
+  //   mode: 'out-in',
+  // },
 }
