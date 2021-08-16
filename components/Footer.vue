@@ -1,5 +1,5 @@
 <template>
-<div class="flex justify-center py-4 mt-16">
+<div class="flex justify-center py-10 mt-10 border-t">
   <LangSwitcher v-if="availableLocales.length" class="inline-flex">
       <template #trigger="{ open, toggle }">
         <button

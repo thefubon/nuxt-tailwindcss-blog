@@ -10,6 +10,7 @@
         <p class="text-4xl text-white font-bold text-center" v-text="$t('about')"></p>
       </div>
     </div>
+    <h1 class="text-4xl text-center font-bold">About</h1>
   </section>
 </template>
 
