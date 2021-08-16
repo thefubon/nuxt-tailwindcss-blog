@@ -34,14 +34,40 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: ['@nuxtjs/tailwindcss'],
+  buildModules: [
+    '@nuxtjs/tailwindcss'
+  ],
   /*
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-
+    '@nuxtjs/i18n',
   ],
+  i18n: {
+    locales: [
+      {
+      code: 'en',
+      iso: 'en-US',
+      file: 'en-US.js',
+      name: 'English'
+      },
+      {
+        code: 'ru',
+        iso: 'ru-Ru',
+        file: 'ru-RU.js',
+        name: 'Русский'
+      },
+      {
+        code: 'de',
+        iso: 'de-DE',
+        file: 'de-DE.js',
+        name: 'Deutsh'
+      }
+    ],
+    defaultLocale: 'en',
+    lazy: true,
+    langDir: 'i18n/',
+  },
   build: {
   },
   transition: {
