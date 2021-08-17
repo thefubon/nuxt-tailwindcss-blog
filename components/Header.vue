@@ -17,6 +17,13 @@
       </button>
     </div>
 
+    <div class="flex justify-center items-center">
+      <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/')" exact>Home</NuxtLink>
+      <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/about')">About</NuxtLink>
+      <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/post')">Post</NuxtLink>
+      <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/blog')">Blog</NuxtLink>
+    </div>
+
     <div class="relative">
       <button class="focus:outline-none bg-indigo-500 text-white py-2 px-4 rounded" v-on-clickaway="away" @click="drop">Dropdown</button>
       <transition

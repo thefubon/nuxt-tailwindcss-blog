@@ -11,26 +11,30 @@
       </div>
     </div>
 
-    <div class="p-4 bg-gray-200 mb-4 rounded">
+    <div class="mt-4 p-4 bg-gray-200 mb-4 rounded container max-w-4xl mx-auto">
       <nuxt-link class="py-2 px-4 bg-gray-500 text-white rounded" active-class="active" exact :to="switchLocalePath('en')">English</nuxt-link>
       <nuxt-link class="py-2 px-4 bg-gray-500 text-white rounded" active-class="active" :to="switchLocalePath('ru')">Русский</nuxt-link>
       <nuxt-link class="py-2 px-4 bg-gray-500 text-white rounded" active-class="active" :to="switchLocalePath('de')">Deutsh</nuxt-link>
     </div>
 
-    <div class="my-4">
-      <h1 v-if="page.title">{{ page.title }}</h1>
-      <h2 v-if="page.description">{{ page.description }}</h2>
+    <div class="container max-w-4xl mx-auto">
+      <div class="my-4">
+        <h1 v-if="page.title">{{ page.title }}</h1>
+        <h2 v-if="page.description">{{ page.description }}</h2>
+      </div>
+
+      <h3 class="font-bold mb-2">Table of Contents </h3>
+      <scrollactive active-class="scrollactive" :modifyUrl="false" :offset="45" :duration="800" bezier-easing-value=".5,0,.35,1" tag="ul">
+        <li v-for="link of page.toc" :key="link.id">
+          <a
+            class="scrollactive-item"
+            :class="{ 'bg-indigo-500': link.depth === 2, 'bg-green-600': link.depth === 3 }"
+            :href="`#${link.id}`
+          ">{{ link.text }}</a>
+        </li>
+      </scrollactive>
     </div>
 
-    <scrollactive active-class="scrollactive" :modifyUrl="false" :offset="45" :duration="800" bezier-easing-value=".5,0,.35,1" tag="ul">
-      <li v-for="link of page.toc" :key="link.id">
-        <a
-          class="scrollactive-item"
-          :class="{ 'bg-indigo-500': link.depth === 2, 'bg-green-600': link.depth === 3 }"
-          :href="`#${link.id}`
-        ">{{ link.text }}</a>
-      </li>
-    </scrollactive>
 
     <div class="mt-10 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
       <NuxtContent :document="page"/>
@@ -44,9 +48,9 @@ export default {
     const slug = params.slug || "index";
     const page = await $content(`${app.i18n.locale}`, slug)
     .fetch()
-    .catch(err => {
-      error({ statusCode: 404, message: "Page not found" });
-    });
+    if (!page) {
+      return error({ statusCode: 404, message: '404! Page not found' })
+    }
 
     return {
       page

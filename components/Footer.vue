@@ -17,7 +17,6 @@
             v-if="$i18n.locale !== locale.code"
             :to="switchLocalePath(locale.code)"
             class="flex px-4 items-center hover:text-primary-500 leading-7 whitespace-no-wrap"
-            active-class="active"
           >{{ locale.name }}</NuxtLink>
         </li>
       </ul>
