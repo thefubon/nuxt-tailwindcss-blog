@@ -20,8 +20,8 @@
     <div class="flex justify-center items-center">
       <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/')" exact>Home</NuxtLink>
       <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/about')">About</NuxtLink>
-      <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/post')">Post</NuxtLink>
-      <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/blog')">Blog</NuxtLink>
+      <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/post')">Contenful</NuxtLink>
+      <NuxtLink class="flex items-center p-4 hover:text-indigo-500" active-class="nav-active" :to="localePath('/articles')">Articles</NuxtLink>
     </div>
 
     <div class="relative">
@@ -87,8 +87,21 @@
 </template>
 
 <script>
+const data = () => ({
+  title: 'Nuxt-i18n Blog',
+})
+
+const computed = {
+  isContentPage() {
+    return this.$route.name.includes('slug')
+  },
+}
+
 import { mixin as clickaway } from 'vue-clickaway'
 export default {
+  name: 'Header',
+  data,
+  computed,
   mixins: [ clickaway ],
   data() {
     return {

@@ -21,12 +21,18 @@
         </li>
       </ul>
     </LangSwitcher>
+     <small>&copy; 2006-{{ new Date().getFullYear() }} {{ siteName }}</small>
 </div>
 </template>
 
 <script>
+import global from '@/utils/global';
 export default {
+  name: 'Footer',
   computed: {
+    siteName() {
+      return global.siteName;
+    },
     availableLocales () {
       return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
     }

@@ -35,16 +35,27 @@
       </scrollactive>
     </div>
 
-
     <div class="mt-10 prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto">
       <NuxtContent :document="page"/>
     </div>
+
+    <section class="w-full md:w-2/3 flex flex-col items-center px-3">
+      LASTPOST
+      <ArticleList :articles="paginatedArticles" :total="allArticles.length" />
+    </section>
   </section>
 </template>
 
 <script>
+import getContent from '@/utils/getContent';
+import ArticleList from '@/components/ArticleList';
+
 export default {
-  async asyncData({ $content, params, error, app }) {
+  name: 'HomePage',
+  components: {
+    ArticleList,
+  },
+  async asyncData({ $content, app, params, error }) {
     const slug = params.slug || "index";
     const page = await $content(`${app.i18n.locale}`, slug)
     .fetch()
@@ -52,9 +63,20 @@ export default {
       return error({ statusCode: 404, message: '404! Page not found' })
     }
 
+    const content = await getContent($content, app, params, error);
+
     return {
-      page
+      page,
+
+      allArticles: content.allArticles,
+      paginatedArticles: content.paginatedArticles,
     };
+  },
+  methods: {
+    formatDate(date) {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' }
+      return new Date(date).toLocaleDateString('ru', options)
+    }
   },
   head () {
     return {
