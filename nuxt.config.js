@@ -66,8 +66,8 @@ export default {
   ],
 
   plugins: [
-    '@/plugins/vue-scrollactive',
-    '~/plugins/contentful',
+    '~/plugins/vue-scrollactive',
+    '~/plugins/contentful'
   ],
 
   buildModules: [

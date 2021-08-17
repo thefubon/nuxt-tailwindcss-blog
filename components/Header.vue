@@ -43,7 +43,6 @@
       </transition>
     </div>
 
-
     <transition
       enter-class="opacity-0"
       enter-active-class="ease-out transition-medium"
