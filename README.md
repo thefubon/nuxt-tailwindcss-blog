@@ -1,8 +1,6 @@
-# Nuxt Components
+<img width="551" alt="nuxtjs" src="https://user-images.githubusercontent.com/43171309/134826702-40ddceec-5378-4c49-bbcc-1571aa2c2369.png">
 
-> By TheFubon
-
-## Build Setup
+# Nuxt / Tailwind CSS / Nuxt Content / Nuxt i18n / Nuxt Contentful / Vue (Offcanvas / Dropdown)
 
 ```bash
 # install dependencies
