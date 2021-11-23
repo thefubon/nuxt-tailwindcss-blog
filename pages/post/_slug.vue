@@ -11,7 +11,7 @@
           </h1>
 
           <hr>
-          <div class="content prose lg:prose-xl" v-html="$md.render(post.fields.content)"></div>
+          <div class="content prose lg:prose-xl" v-html="$md.render(post.fields.richText)"></div>
         </div>
       </div>
     </div>
